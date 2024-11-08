@@ -9,7 +9,7 @@
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -24,11 +24,14 @@
       padding: 20px;
       width: 100%;
       max-width: 600px;
+      box-sizing: border-box;
+      margin-top: 20px; /* Adjusts space at the top for the icon */
     }
 
     .icon {
       font-size: 80px;
       margin-bottom: 20px;
+      margin-top: 10px; /* Adds space above the icon on mobile */
     }
 
     h1 {
@@ -67,6 +70,19 @@
     a:hover {
       background-color: #fff;
       color: #000;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .icon {
+        font-size: 60px; /* Slightly smaller icon for better fit on small screens */
+      }
+      h1 {
+        font-size: 1.8em;
+      }
     }
   </style>
 </head>
