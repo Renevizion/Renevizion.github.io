@@ -11,110 +11,183 @@
       padding: 0;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      font-family: 'Roboto Mono', monospace;
       background-color: #000;
       color: #fff;
-      font-family: 'Roboto Mono', monospace;
-      text-align: center;
     }
+Copy.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
 
-    .container {
-      padding: 20px;
-      width: 100%;
-      max-width: 600px;
-      box-sizing: border-box;
-      margin-top: 20px; /* Adjusts space at the top for the icon */
-    }
+.icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
 
-    .icon {
-      font-size: 80px;
-      margin-bottom: 20px;
-      margin-top: 10px; /* Adds space above the icon on mobile */
-    }
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+}
 
-    h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      font-family: 'Space Mono', monospace;
-    }
+.section {
+  margin-bottom: 30px;
+  text-align: center;
+}
 
-    .section {
-      margin-bottom: 30px;
-    }
+.section h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-family: 'Space Mono', monospace;
+}
 
-    .section h2 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-      font-family: 'Space Mono', monospace;
-    }
+.section p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
 
-    .section p {
-      font-size: 1em;
-      line-height: 1.5;
-      margin-bottom: 15px;
-    }
+.right-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin-left: 20px;
+}
 
-    a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      border: 2px solid #fff;
-      padding: 10px 15px;
-      border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s;
-      display: inline-block;
-    }
+.app-component,
+.extension-component {
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin-bottom: 20px;
+}
 
-    a:hover {
-      background-color: #fff;
-      color: #000;
-    }
+.app-component h3,
+.extension-component h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-family: 'Space Mono', monospace;
+}
 
-    /* Mobile adjustments */
-    @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-      .icon {
-        font-size: 60px; /* Slightly smaller icon for better fit on small screens */
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
+.app-component .app-list,
+.extension-component .extension-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-component .app-list li,
+.extension-component .extension-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.app-component .app-list li img,
+.extension-component .extension-list li img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .right-component {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .app-component,
+  .extension-component {
+    width: 100%;
+    max-width: 400px;
+  }
+}
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Central Icon -->
     <div class="icon">🚀</div>
-    
-    <!-- Title -->
     <h1>Renevizion Curriculum Map</h1>
-    
-    <!-- Section 1: Best Tools -->
-    <div class="section">
-      <h2>1. Garnering the Best Tools</h2>
-      <p>Identify and evaluate cutting-edge tools and technologies. Explore various software and platforms that can enhance productivity and creativity. Stay updated with the latest advancements in the field to ensure you are using the most effective tools.</p>
+Copy<div class="section">
+  <h2>1. Garnering the Best Tools</h2>
+  <p>Identify and evaluate cutting-edge tools and technologies. Explore various software and platforms that can enhance productivity and creativity. Stay updated with the latest advancements in the field to ensure you are using the most effective tools.</p>
+</div>
+
+<div class="section">
+  <h2>2. Educating People</h2>
+  <p>Develop comprehensive training programs and workshops to educate individuals on the use of these tools. Focus on creating engaging content that caters to different learning styles. Provide resources and support to ensure successful learning outcomes.</p>
+</div>
+
+<div class="section">
+  <h2>3. Pushing Boundaries</h2>
+  <p>Encourage innovation and exploration beyond conventional limits. Foster a culture of experimentation and creativity to push the boundaries of what's possible. Support initiatives and projects that challenge existing norms and drive progress.</p>
+</div>
+
+<div class="container-links">
+  <a href="automation-levels.html" target="_blank">Learn More</a>
+  <a href="contact.html" target="_blank">Contact Me</a>
+</div>
+  </div>
+  <div class="right-component">
+    <div class="app-component">
+      <h3>Available Apps</h3>
+      <ul class="app-list">
+        <li>
+          <img src="app-icon-1.png" alt="App 1">
+          App 1
+        </li>
+        <li>
+          <img src="app-icon-2.png" alt="App 2">
+          App 2
+        </li>
+        <!-- Add more app list items as needed -->
+      </ul>
     </div>
-    
-    <!-- Section 2: Educating People -->
-    <div class="section">
-      <h2>2. Educating People</h2>
-      <p>Develop comprehensive training programs and workshops to educate individuals on the use of these tools. Focus on creating engaging content that caters to different learning styles. Provide resources and support to ensure successful learning outcomes.</p>
-    </div>
-    
-    <!-- Section 3: Pushing Boundaries -->
-    <div class="section">
-      <h2>3. Pushing Boundaries</h2>
-      <p>Encourage innovation and exploration beyond conventional limits. Foster a culture of experimentation and creativity to push the boundaries of what's possible. Support initiatives and projects that challenge existing norms and drive progress.</p>
-    </div>
-    
-    <!-- Hyperlink -->
-    <a href="automation-levels.html" target="_blank">Learn More</a>
-    <a href="contact.html" target="_blank">Contact Me</a>
+Copy<div class="extension-component">
+  <h3>Available Browser Extensions</h3>
+  <ul class="extension-list">
+    <li>
+      <img src="extension-icon-1.png" alt="Extension 1">
+      Extension 1
+    </li>
+    <li>
+      <img src="extension-icon-2.png" alt="Extension 2">
+      Extension 2
+    </li>
+    <!-- Add more extension list items as needed -->
+  </ul>
+</div>
   </div>
 </body>
 </html>
