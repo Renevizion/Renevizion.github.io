@@ -3,21 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Renevizion - Portal</title>
+  <title>Renevizion - Curriculum Map</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            'roboto-mono': ['"Roboto Mono"', 'monospace'],
-            'space-mono': ['"Space Mono"', 'monospace'],
-          },
-        },
-      },
-    }
-  </script>
   <style>
     body {
       margin: 0;
@@ -25,72 +13,91 @@
       min-height: 100vh;
       background-color: #000;
       color: #fff;
-      font-family: 'Roboto Mono', monospace;
-      position: relative;
+      font-family: 'Space Mono', monospace;
       overflow-x: hidden;
     }
 
-    .main-wrapper {
+    .map-container {
+      position: relative;
+      width: calc(100% - 24rem);
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
       display: flex;
-      min-height: 100vh;
-      padding: 20px;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .container {
-      margin: 0 auto;
-      padding: 20px;
+    .map-node {
+      position: relative;
       width: 100%;
       max-width: 600px;
-      box-sizing: border-box;
-      margin-top: 20px;
+      margin: 1rem 0;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+
+    .map-node::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .map-node:first-child::before {
+      display: none;
+    }
+
+    .map-title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
       text-align: center;
     }
 
-    .icon {
-      font-size: 80px;
-      margin-bottom: 20px;
-      margin-top: 10px;
+    .map-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-align: center;
     }
 
-    h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      font-family: 'Space Mono', monospace;
-    }
-
-    .section {
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section h2 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-      font-family: 'Space Mono', monospace;
-    }
-
-    .section p {
-      font-size: 1em;
-      line-height: 1.5;
-      margin-bottom: 15px;
-    }
-
-    a {
+    .node-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
       color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      border: 2px solid #fff;
-      padding: 10px 15px;
-      border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s;
-      display: inline-block;
-      margin: 0 5px;
+      font-weight: bold;
     }
 
-    a:hover {
-      background-color: #fff;
-      color: #000;
+    .node-content {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .map-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .map-button {
+      padding: 0.75rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      background: transparent;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .map-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
     }
 
     .side-component {
@@ -102,19 +109,9 @@
     }
 
     @media (max-width: 1200px) {
-      .container {
-        margin-right: 22rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .main-wrapper {
-        flex-direction: column;
-      }
-
-      .container {
-        margin-right: auto;
-        padding: 10px;
+      .map-container {
+        width: 100%;
+        padding: 1rem;
       }
 
       .side-component {
@@ -123,84 +120,75 @@
         max-width: 600px;
         margin: 2rem auto;
       }
-
-      .icon {
-        font-size: 60px;
-      }
-
-      h1 {
-        font-size: 1.8em;
-      }
-
-      .section {
-        padding: 0 1rem;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="main-wrapper">
-    <div class="container">
-      <div class="icon">🚀</div>
-      
-      <h1>Renevizion Curriculum Map</h1>
-      
-      <div class="section">
-        <h2>1. Garnering the Best Tools</h2>
-        <p>Identify and evaluate cutting-edge tools and technologies. Explore various software and platforms that can enhance productivity and creativity. Stay updated with the latest advancements in the field to ensure you are using the most effective tools.</p>
-      </div>
-      
-      <div class="section">
-        <h2>2. Educating People</h2>
-        <p>Develop comprehensive training programs and workshops to educate individuals on the use of these tools. Focus on creating engaging content that caters to different learning styles. Provide resources and support to ensure successful learning outcomes.</p>
-      </div>
-      
-      <div class="section">
-        <h2>3. Pushing Boundaries</h2>
-        <p>Encourage innovation and exploration beyond conventional limits. Foster a culture of experimentation and creativity to push the boundaries of what's possible. Support initiatives and projects that challenge existing norms and drive progress.</p>
-      </div>
-      
-      <div class="actions">
-        <a href="automation-levels.html" target="_blank">Learn More</a>
-        <a href="contact.html" target="_blank">Contact Me</a>
+  <div class="map-container">
+    <div class="map-icon">🚀</div>
+    <h1 class="map-title">Renevizion Curriculum Map</h1>
+    
+    <div class="map-node">
+      <h2 class="node-title">1. Garnering the Best Tools</h2>
+      <p class="node-content">
+        Identify and evaluate cutting-edge tools and technologies. Explore various software and platforms that can enhance productivity and creativity. Stay updated with the latest advancements in the field to ensure you are using the most effective tools.
+      </p>
+    </div>
+    
+    <div class="map-node">
+      <h2 class="node-title">2. Educating People</h2>
+      <p class="node-content">
+        Develop comprehensive training programs and workshops to educate individuals on the use of these tools. Focus on creating engaging content that caters to different learning styles. Provide resources and support to ensure successful learning outcomes.
+      </p>
+    </div>
+    
+    <div class="map-node">
+      <h2 class="node-title">3. Pushing Boundaries</h2>
+      <p class="node-content">
+        Encourage innovation and exploration beyond conventional limits. Foster a culture of experimentation and creativity to push the boundaries of what's possible. Support initiatives and projects that challenge existing norms and drive progress.
+      </p>
+    </div>
+    
+    <div class="map-actions">
+      <a href="automation-levels.html" class="map-button">Learn More</a>
+      <a href="contact.html" class="map-button">Contact Me</a>
+    </div>
+  </div>
+
+  <!-- Side component for apps and extensions -->
+  <div class="side-component space-y-6">
+    <!-- Apps Section -->
+    <div class="rounded-lg border border-white/20 bg-black/90 p-4 backdrop-blur-lg shadow-lg">
+      <h3 class="mb-4 flex items-center gap-2 font-space-mono text-lg font-bold text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+        Available Apps
+      </h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
+          <div class="h-12 w-12 rounded-full bg-white/10"></div>
+          <span class="mt-2 text-sm">App 1</span>
+        </div>
+        <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
+          <div class="h-12 w-12 rounded-full bg-white/10"></div>
+          <span class="mt-2 text-sm">App 2</span>
+        </div>
       </div>
     </div>
 
-    <!-- Side component for apps and extensions -->
-    <div class="side-component space-y-6">
-      <!-- Apps Section -->
-      <div class="rounded-lg border border-white/20 bg-black/90 p-4 backdrop-blur-lg shadow-lg">
-        <h3 class="mb-4 flex items-center gap-2 font-space-mono text-lg font-bold text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-          Available Apps
-        </h3>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-            <div class="h-12 w-12 rounded-full bg-white/10"></div>
-            <span class="mt-2 text-sm">App 1</span>
-          </div>
-          <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-            <div class="h-12 w-12 rounded-full bg-white/10"></div>
-            <span class="mt-2 text-sm">App 2</span>
-          </div>
+    <!-- Extensions Section -->
+    <div class="rounded-lg border border-white/20 bg-black/90 p-4 backdrop-blur-lg shadow-lg">
+      <h3 class="mb-4 flex items-center gap-2 font-space-mono text-lg font-bold text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        Browser Extensions
+      </h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
+          <div class="h-12 w-12 rounded-full bg-white/10"></div>
+          <span class="mt-2 text-sm">Extension 1</span>
         </div>
-      </div>
-
-      <!-- Extensions Section -->
-      <div class="rounded-lg border border-white/20 bg-black/90 p-4 backdrop-blur-lg shadow-lg">
-        <h3 class="mb-4 flex items-center gap-2 font-space-mono text-lg font-bold text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-          Browser Extensions
-        </h3>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-            <div class="h-12 w-12 rounded-full bg-white/10"></div>
-            <span class="mt-2 text-sm">Extension 1</span>
-          </div>
-          <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-            <div class="h-12 w-12 rounded-full bg-white/10"></div>
-            <span class="mt-2 text-sm">Extension 2</span>
-          </div>
+        <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
+          <div class="h-12 w-12 rounded-full bg-white/10"></div>
+          <span class="mt-2 text-sm">Extension 2</span>
         </div>
       </div>
     </div>
