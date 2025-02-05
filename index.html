@@ -108,6 +108,100 @@
       z-index: 10;
     }
 
+    /* SMS Opt-in Styles */
+    .sms-trigger {
+      position: fixed;
+      left: 1rem;
+      top: 25%;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      z-index: 20;
+    }
+
+    .sms-trigger:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 500px;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 0.3s ease;
+    }
+
+    .close-modal:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    .phone-input {
+      width: 100%;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      color: white;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .phone-input:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .consent-box {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .checkbox-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    .checkbox-wrapper input[type="checkbox"] {
+      margin-top: 0.25rem;
+    }
+
     @media (max-width: 1200px) {
       .map-container {
         width: 100%;
@@ -120,10 +214,83 @@
         max-width: 600px;
         margin: 2rem auto;
       }
+
+      .sms-trigger {
+        position: static;
+        margin: 1rem auto;
+        max-width: 600px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- SMS Trigger Button -->
+  <div class="sms-trigger" onclick="showModal()">
+    <h3 class="flex items-center gap-2 font-space-mono text-lg font-bold text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      SMS Updates
+    </h3>
+  </div>
+
+  <!-- SMS Opt-in Modal -->
+  <div id="smsModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="hideModal()">&times;</span>
+      <h3 class="text-xl font-bold mb-6">Sign Up for SMS Updates</h3>
+      
+      <form id="smsForm" onsubmit="handleSubmit(event)">
+        <div class="mb-4">
+          <label class="block text-sm text-white/80 mb-2">Mobile Phone Number</label>
+          <input 
+            type="tel" 
+            required 
+            pattern="^\(\d{3}\) \d{3}-\d{4}$"
+            placeholder="(555) 555-5555"
+            class="phone-input"
+            oninput="formatPhoneNumber(this)"
+          >
+          <p class="text-xs text-white/60 mt-1">U.S. mobile numbers only</p>
+        </div>
+
+        <div class="consent-box">
+          <h4 class="text-sm font-bold mb-3">Terms of Service</h4>
+          
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="messageConsent" required>
+            <label for="messageConsent" class="text-xs text-white/80">
+              I agree to receive recurring automated marketing messages from Renevizion at the phone number provided. Consent is not a condition of any purchase. Message frequency may vary. Message & data rates may apply.
+            </label>
+          </div>
+
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="tosConsent" required>
+            <label for="tosConsent" class="text-xs text-white/80">
+              I have read and agree to the <a href="#" class="underline">Terms of Service</a> and <a href="#" class="underline">Privacy Policy</a>. I understand that I can reply STOP at any time to opt out of messages.
+            </label>
+          </div>
+
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="ageConsent" required>
+            <label for="ageConsent" class="text-xs text-white/80">
+              I confirm that I am at least 18 years old or of legal age in my jurisdiction to receive these messages.
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="map-button w-full">
+          Sign Up for SMS Updates
+        </button>
+
+        <p class="text-xs text-white/60 mt-4 text-center">
+          By clicking "Sign Up", you agree this constitutes your electronic signature for this agreement.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Your original content -->
   <div class="map-container">
     <div class="map-icon">🚀</div>
     <h1 class="map-title">Renevizion Curriculum Map</h1>
@@ -178,20 +345,4 @@
     <!-- Extensions Section -->
     <div class="rounded-lg border border-white/20 bg-black/90 p-4 backdrop-blur-lg shadow-lg">
       <h3 class="mb-4 flex items-center gap-2 font-space-mono text-lg font-bold text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-        Browser Extensions
-      </h3>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-          <div class="h-12 w-12 rounded-full bg-white/10"></div>
-          <span class="mt-2 text-sm">Extension 1</span>
-        </div>
-        <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-          <div class="h-12 w-12 rounded-full bg-white/10"></div>
-          <span class="mt-2 text-sm">Extension 2</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2
