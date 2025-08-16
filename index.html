@@ -224,100 +224,36 @@
     </style>
 </head>
 <body>
-    <div class="sms-trigger" onclick="showModal()">
-        <h3 class="flex items-center gap-2 font-space-mono text-lg font-bold text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-            SMS Updates
-        </h3>
+  <div class="map-container">
+    <div class="map-icon">🚀</div>
+    <h1 class="map-title">Renevizion Curriculum Map</h1>
+    
+    <div class="map-node">
+      <h2 class="node-title">1. Garnering the Best Tools</h2>
+      <p class="node-content">
+        Identify and evaluate cutting-edge tools and technologies. Explore various software and platforms that can enhance productivity and creativity. Stay updated with the latest advancements in the field to ensure you are using the most effective tools.
+      </p>
     </div>
-
-    <div id="smsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="hideModal()">&times;</span>
-            <h3 class="text-xl font-bold mb-6">Sign Up for SMS Updates</h3>
-            
-            <form id="smsForm" onsubmit="handleSubmit(event)">
-                <div class="mb-4">
-                    <label class="block text-sm text-white/80 mb-2">Mobile Phone Number</label>
-                    <input 
-                        type="tel" 
-                        required 
-                        pattern="^\(\d{3}\) \d{3}-\d{4}$"
-                        placeholder="(555) 555-5555"
-                        class="phone-input"
-                        oninput="formatPhoneNumber(this)"
-                    >
-                    <p class="text-xs text-white/60 mt-1">U.S. mobile numbers only</p>
-                </div>
-
-                <div class="consent-box">
-                    <h4 class="text-sm font-bold mb-3">Terms of Service</h4>
-                    
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="messageConsent" required>
-                        <label for="messageConsent" class="text-xs text-white/80">
-                            I agree to receive recurring automated marketing messages from Renevizion at the phone number provided. Consent is not a condition of any purchase. Message frequency may vary. Message & data rates may apply.
-                        </label>
-                    </div>
-
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="tosConsent" required>
-                        <label for="tosConsent" class="text-xs text-white/80">
-                            I have read and agree to the <a href="#" class="underline">Terms of Service</a> and <a href="#" class="underline">Privacy Policy</a>. I understand that I can reply STOP at any time to opt out of messages.
-                        </label>
-                    </div>
-
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="ageConsent" required>
-                        <label for="ageConsent" class="text-xs text-white/80">
-                            I confirm that I am at least 18 years old or of legal age in my jurisdiction to receive these messages.
-                        </label>
-                    </div>
-                </div>
-
-                <button type="submit" class="map-button w-full">
-                    Sign Up for SMS Updates
-                </button>
-
-                <p class="text-xs text-white/60 mt-4 text-center">
-                    By clicking "Sign Up", you agree this constitutes your electronic signature for this agreement.
-                </p>
-            </form>
-        </div>
+    
+    <div class="map-node">
+      <h2 class="node-title">2. Educating People</h2>
+      <p class="node-content">
+        Develop comprehensive training programs and workshops to educate individuals on the use of these tools. Focus on creating engaging content that caters to different learning styles. Provide resources and support to ensure successful learning outcomes.
+      </p>
     </div>
-
-    <div class="map-container">
-        <div class="map-icon">🚀</div>
-        <h1 class="map-title">Renevizion Curriculum Map</h1>
-        
-        <div class="map-node">
-            <h2 class="node-title">1. Garnering the Best Tools</h2>
-            <p class="node-content">
-                Identify and evaluate cutting-edge tools and technologies. Explore various software and platforms that can enhance productivity and creativity. Stay updated with the latest advancements in the field to ensure you are using the most effective tools.
-            </p>
-        </div>
-        
-        <div class="map-node">
-            <h2 class="node-title">2. Educating People</h2>
-            <p class="node-content">
-                Develop comprehensive training programs and workshops to educate individuals on the use of these tools. Focus on creating engaging content that caters to different learning styles. Provide resources and support to ensure successful learning outcomes.
-            </p>
-        </div>
-        
-        <div class="map-node">
-            <h2 class="node-title">3. Pushing Boundaries</h2>
-            <p class="node-content">
-                Encourage innovation and exploration beyond conventional limits. Foster a culture of experimentation and creativity to push the boundaries of what's possible. Support initiatives and projects that challenge existing norms and drive progress.
-            </p>
-        </div>
-        
-        <div class="map-actions">
-            <a href="automation-levels.html" class="map-button">Learn More</a>
-            <a href="contact.html" class="map-button">Contact Me</a>
-        </div>
+    
+    <div class="map-node">
+      <h2 class="node-title">3. Pushing Boundaries</h2>
+      <p class="node-content">
+        Encourage innovation and exploration beyond conventional limits. Foster a culture of experimentation and creativity to push the boundaries of what's possible. Support initiatives and projects that challenge existing norms and drive progress.
+      </p>
     </div>
+    
+    <div class="map-actions">
+      <a href="automation-levels.html" class="map-button">Learn More</a>
+      <a href="contact.html" class="map-button">Contact Me</a>
+    </div>
+  </div>
 
     <div class="side-component space-y-6">
         <div class="rounded-lg border border-white/20 bg-black/90 p-4 backdrop-blur-lg shadow-lg">
