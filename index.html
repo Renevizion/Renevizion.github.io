@@ -3,276 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renevizion - Custom Apps Built Fast</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Renevizion AI - Enterprise AI Transformation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
-            color: #fff;
-            font-family: 'Space Mono', monospace;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
         nav {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
             gap: 2rem;
-            padding: 2rem 0 1rem 0;
-            font-size: 1.1rem;
+            list-style: none;
         }
-        nav a {
-            color: #FFD700;
+        
+        .nav-links a {
+            color: #4a5568;
             text-decoration: none;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
-        nav a:hover {
-            text-decoration: underline;
+        
+        .nav-links a:hover {
+            color: #667eea;
         }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Hero Section */
         .hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 8rem 2rem 4rem;
             text-align: center;
-            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 2rem;
         }
-        .hero-title {
-            font-size: 2.7rem;
-            font-weight: bold;
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a202c;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 4rem 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat {
+            padding: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 0.5rem;
         }
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+        
+        .stat-label {
+            color: #4a5568;
+            font-weight: 500;
         }
-        .cta-btn {
-            background: #FFD700;
-            color: #222;
-            padding: 1rem 2.5rem;
-            border-radius: 6px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: background 0.2s;
+        
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: #f8fafc;
         }
-        .cta-btn:hover {
-            background: #ffbf00;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .section {
-            max-width: 900px;
-            margin: 2rem auto;
-            background: rgba(0,0,0,0.7);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
+        
         .section-title {
-            font-size: 1.7rem;
-            color: #FFD700;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
             margin-bottom: 1rem;
         }
-        .pricing-table {
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
         }
-        .pricing-card {
-            background: #222;
-            border-radius: 8px;
-            padding: 1.5rem;
-            color: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        .pricing-card h3 {
-            color: #FFD700;
-            margin-bottom: 0.5rem;
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        .pricing-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1rem 0;
-        }
-        .pricing-card ul li {
-            margin-bottom: 0.5rem;
-        }
-        .portfolio-list {
-            margin-top: 1rem;
-        }
-        .portfolio-item {
-            margin-bottom: 1.2rem;
-        }
-        .why-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .why-card {
-            background: #222;
-            border-radius: 8px;
-            padding: 1rem;
-            color: #FFD700;
-            font-size: 1.1rem;
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
         }
-        .products-table {
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        /* Industries Section */
+        .industries {
+            padding: 6rem 2rem;
+            background: white;
+        }
+        
+        .industries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            margin-top: 1rem;
+            margin-top: 3rem;
         }
-        .product-card {
-            background: #222;
-            border-radius: 8px;
-            padding: 1rem;
-            color: #fff;
-        }
-        .product-card h4 {
-            color: #FFD700;
-            margin-bottom: 0.5rem;
-        }
-        .founder-quote {
+        
+        .industry-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
             text-align: center;
-            margin: 2rem 0;
-            font-size: 1.1rem;
-            color: #FFD700;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
-        .final-cta {
+        
+        .industry-tag:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 6rem 2rem;
             text-align: center;
-            margin: 2rem 0;
         }
-        .final-cta .cta-btn {
-            margin-top: 0.5rem;
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
-        @media (max-width: 700px) {
-            .section { padding: 1rem; }
-            .hero-title { font-size: 2rem; }
-            .section-title { font-size: 1.2rem; }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#products">Products</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <div class="hero">
-        <div class="hero-title">Custom Apps Built Fast</div>
-        <div class="hero-subtitle">Turn Your Business Idea Into a Working App in 30 Days</div>
-        <div>Skip the 6-month development cycles and $50K budgets.<br>
-        I build custom apps for small businesses using modern AI tools and proven frameworks.</div>
-        <a href="contact.html"><button class="cta-btn">Get Your App Quote</button></a>
-    </div>
+    <header class="header">
+        <nav>
+            <div class="logo">Renevizion AI</div>
+            <ul class="nav-links">
+                <li><a href="#services">Solutions</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Schedule Consultation</a>
+        </nav>
+    </header>
 
-    <div class="section" id="services">
-        <div class="section-title">App Development Services</div>
-        <div class="pricing-table">
-            <div class="pricing-card">
-                <h3>$2,000<br>MVP Development</h3>
-                <ul>
-                    <li>Core functionality built</li>
-                    <li>User authentication system</li>
-                    <li>Basic database setup</li>
-                    <li>Mobile-responsive design</li>
-                    <li>30-day delivery guarantee</li>
-                    <li>Basic documentation included</li>
-                </ul>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Enterprise AI Transformation</div>
+            <h1>Accelerate Business Growth with Strategic AI Implementation</h1>
+            <p>We partner with forward-thinking enterprises to unlock competitive advantages through custom AI solutions, intelligent automation, and data-driven transformation.</p>
+            <a href="#contact" class="hero-cta">
+                Discover Your AI Potential →
+            </a>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat">
+                <div class="stat-number">150M+</div>
+                <div class="stat-label">Data Points Processed</div>
             </div>
-            <div class="pricing-card">
-                <h3>$5,000<br>Full App + Launch</h3>
-                <ul>
-                    <li>Everything in MVP package</li>
-                    <li>Advanced features & integrations</li>
-                    <li>Payment processing setup</li>
-                    <li>App store submission</li>
-                    <li>Launch strategy & support</li>
-                    <li>3 months post-launch support</li>
-                </ul>
+            <div class="stat">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">Average Efficiency Gain</div>
             </div>
-            <div class="pricing-card">
-                <h3>$7,500<br>App + Marketing Strategy</h3>
-                <ul>
-                    <li>Everything in Full App package</li>
-                    <li>Complete marketing strategy</li>
-                    <li>Social media setup & content</li>
-                    <li>SEO optimization</li>
-                    <li>Analytics & tracking setup</li>
-                    <li>6 months growth support</li>
-                </ul>
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Enterprise Deployments</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Satisfaction Rate</div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="section" id="portfolio">
-        <div class="section-title">Live Apps & Prototypes</div>
-        <div class="portfolio-list">
-            <div class="portfolio-item">
-                <strong>LosePaper.com</strong><br>
-                Live productivity app helping users organize and manage their digital workflows. Currently serving active users with plans for premium features.
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">AI Solutions That Drive Results</h2>
+                <p class="section-subtitle">From strategy to implementation, we deliver end-to-end AI transformation that scales with your business.</p>
             </div>
-            <div class="portfolio-item">
-                <strong>E-Commerce Platform</strong><br>
-                Custom shopping cart and inventory management system built for local retailer. Integrated payment processing and automated order fulfillment.
-            </div>
-            <div class="portfolio-item">
-                <strong>Appointment Booking System</strong><br>
-                Calendar integration and automated reminders for service-based business. Reduced no-shows by 40% and streamlined client management.
-            </div>
-            <div class="portfolio-item">
-                <strong>Content Management Tool</strong><br>
-                Custom CMS for content creators managing multiple social media accounts. Built with automated posting and analytics tracking.
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Intelligent Process Automation</h3>
+                    <p>Transform manual workflows into intelligent, self-optimizing systems that reduce costs by up to 60% while improving accuracy and speed.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Predictive Analytics & ML</h3>
+                    <p>Harness your data to predict market trends, customer behavior, and operational bottlenecks with enterprise-grade machine learning models.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>AI Strategy & Roadmapping</h3>
+                    <p>Comprehensive AI strategy development aligned with your business objectives, complete with implementation roadmaps and ROI projections.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Custom AI Development</h3>
+                    <p>Bespoke AI solutions tailored to your unique challenges, from natural language processing to computer vision and beyond.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="section" id="why">
-        <div class="section-title">Why Choose Renevizion?</div>
-        <div class="why-list">
-            <div class="why-card">⚡ Lightning Fast Delivery</div>
-            <div class="why-card">💰 Transparent Pricing</div>
-            <div class="why-card">🔧 Full Documentation</div>
-            <div class="why-card">📱 Modern Tech Stack</div>
-        </div>
-    </div>
-
-    <div class="section" id="products">
-        <div class="section-title">Digital Products & Courses</div>
-        <div class="products-table">
-            <div class="product-card">
-                <h4>$297<br>"Build Apps Fast" Course</h4>
-                <div>Complete step-by-step course showing exactly how I build custom apps in 30 days using AI tools and modern frameworks.<br><em>Coming Soon</em></div>
+    <section class="industries" id="industries">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Industries We Transform</h2>
+                <p class="section-subtitle">Deep expertise across sectors where AI creates the most impact</p>
             </div>
-            <div class="product-card">
-                <h4>$97<br>App Idea Validation Toolkit</h4>
-                <div>Templates, checklists, and frameworks to validate your app idea before spending money on development.<br><em>Coming Soon</em></div>
-            </div>
-            <div class="product-card">
-                <h4>$47-197<br>Code Templates & Packages</h4>
-                <div>Ready-to-use code templates for common app features. Authentication, payments, dashboards, and more.<br><em>Coming Soon</em></div>
-            </div>
-            <div class="product-card">
-                <h4>$200/hr<br>1-on-1 Consulting</h4>
-                <div>Direct access to my expertise. App strategy, technical guidance, or business planning sessions.<br>
-                <a href="contact.html" style="color:#FFD700;">Book Session</a></div>
+            <div class="industries-grid">
+                <div class="industry-tag">Financial Services</div>
+                <div class="industry-tag">Healthcare & Life Sciences</div>
+                <div class="industry-tag">Manufacturing & Supply Chain</div>
+                <div class="industry-tag">Retail & E-commerce</div>
+                <div class="industry-tag">Energy & Utilities</div>
+                <div class="industry-tag">Professional Services</div>
+                <div class="industry-tag">Technology & SaaS</div>
+                <div class="industry-tag">Government & Public Sector</div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="founder-quote">
-        "I've built 10+ prototype apps and have one live application serving real users. My focus is speed, quality, and getting your business online fast."<br>
-        <br>- Renevizion Founder
-    </div>
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Join industry leaders who trust Renevizion AI to deliver measurable results through strategic AI implementation.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Schedule Strategic Consultation</a>
+                <a href="#" class="btn-secondary">Download AI Readiness Guide</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="final-cta">
-        <div class="hero-title">Ready to Build Your App?</div>
-        <div>Let's turn your business idea into a working application in 30 days.</div>
-        <a href="contact.html"><button class="cta-btn">Get Your Free Quote</button></a>
-    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Renevizion AI. All rights reserved. | Enterprise AI Transformation</p>
+        </div>
+    </footer>
 </body>
 </html>
