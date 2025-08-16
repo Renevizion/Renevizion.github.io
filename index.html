@@ -3,395 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renevizion - Curriculum Map</title>
+    <title>Renevizion - Custom Apps Built Fast</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            background-color: #000;
+            background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
             color: #fff;
             font-family: 'Space Mono', monospace;
-            overflow-x: hidden;
         }
-
-        .map-container {
-            position: relative;
-            width: calc(100% - 24rem);
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
+        nav {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem 0 1rem 0;
+            font-size: 1.1rem;
         }
-
-        .map-node {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin: 1rem 0;
-            padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-
-        .map-node::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            width: 2px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .map-node:first-child::before {
-            display: none;
-        }
-
-        .map-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .map-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .node-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
+        nav a {
+            color: #FFD700;
+            text-decoration: none;
             font-weight: bold;
+            letter-spacing: 1px;
         }
-
-        .node-content {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
+        nav a:hover {
+            text-decoration: underline;
         }
-
-        .map-actions {
-            display: flex;
-            gap: 1rem;
+        .hero {
+            text-align: center;
             margin-top: 2rem;
+            margin-bottom: 2rem;
         }
-
-        .map-button {
-            padding: 0.75rem 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            background: transparent;
-            color: #fff;
-            transition: all 0.3s ease;
+        .hero-title {
+            font-size: 2.7rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
-
-        .map-button:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.4);
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
         }
-
-        .side-component {
-            position: fixed;
-            right: 1rem;
-            top: 25%;
-            width: 20rem;
-            z-index: 10;
-        }
-
-        /* SMS Modal Styles */
-        .sms-trigger {
-            position: fixed;
-            left: 1rem;
-            top: 25%;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+        .cta-btn {
+            background: #FFD700;
+            color: #222;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
             cursor: pointer;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            z-index: 20;
+            margin-top: 1rem;
+            transition: background 0.2s;
         }
-
-        .sms-trigger:hover {
-            border-color: rgba(255, 255, 255, 0.4);
-            background: rgba(0, 0, 0, 0.9);
+        .cta-btn:hover {
+            background: #ffbf00;
         }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 500px;
-            background: #000;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+        .section {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: rgba(0,0,0,0.7);
+            border-radius: 12px;
             padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.6);
-            transition: color 0.3s ease;
+        .section-title {
+            font-size: 1.7rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
         }
-
-        .close-modal:hover {
-            color: rgba(255, 255, 255, 1);
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
-
-        .phone-input {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            color: white;
-            font-family: 'Roboto Mono', monospace;
+        .pricing-card {
+            background: #222;
+            border-radius: 8px;
+            padding: 1.5rem;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-
-        .phone-input:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.1);
+        .pricing-card h3 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
         }
-
-        .consent-box {
-            margin: 1.5rem 0;
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1rem 0;
+        }
+        .pricing-card ul li {
+            margin-bottom: 0.5rem;
+        }
+        .portfolio-list {
+            margin-top: 1rem;
+        }
+        .portfolio-item {
+            margin-bottom: 1.2rem;
+        }
+        .why-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .why-card {
+            background: #222;
+            border-radius: 8px;
             padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .checkbox-wrapper {
+            color: #FFD700;
+            font-size: 1.1rem;
             display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin: 1rem 0;
+            align-items: center;
+            gap: 0.7rem;
         }
-
-        .checkbox-wrapper input[type="checkbox"] {
-            margin-top: 0.25rem;
+        .products-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
-
-        @media (max-width: 1200px) {
-            .map-container {
-                width: 100%;
-                padding: 1rem;
-            }
-
-            .side-component {
-                position: static;
-                width: 100%;
-                max-width: 600px;
-                margin: 2rem auto;
-            }
-
-            .sms-trigger {
-                position: static;
-                margin: 1rem auto;
-                max-width: 600px;
-            }
+        .product-card {
+            background: #222;
+            border-radius: 8px;
+            padding: 1rem;
+            color: #fff;
+        }
+        .product-card h4 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+        .founder-quote {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+            color: #FFD700;
+        }
+        .final-cta {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .final-cta .cta-btn {
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 700px) {
+            .section { padding: 1rem; }
+            .hero-title { font-size: 2rem; }
+            .section-title { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-  <div class="map-container">
-    <div class="map-icon">⚡️</div>
-    <h1 class="map-title">RENEVIZION - Rapid App Development</h1>
-    
-    <div class="map-node">
-      <h2 class="node-title">Turn Your Business Idea Into a Working App in 30 Days</h2>
-      <p class="node-content">
-        I build custom apps for small businesses—fast. Get your MVP, full app, or launch strategy delivered in weeks, not months.
-      </p>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#products">Products</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="hero">
+        <div class="hero-title">Custom Apps Built Fast</div>
+        <div class="hero-subtitle">Turn Your Business Idea Into a Working App in 30 Days</div>
+        <div>Skip the 6-month development cycles and $50K budgets.<br>
+        I build custom apps for small businesses using modern AI tools and proven frameworks.</div>
+        <a href="contact.html"><button class="cta-btn">Get Your App Quote</button></a>
     </div>
-    
-    <div class="map-node">
-      <h2 class="node-title">Services & Pricing</h2>
-      <ul class="node-content" style="text-align:left;">
-        <li><strong>MVP Development</strong> – <span style="color:#FFD700;">$2,000</span></li>
-        <li><strong>Full App + Launch</strong> – <span style="color:#FFD700;">$5,000</span></li>
-        <li><strong>App + Marketing Strategy</strong> – <span style="color:#FFD700;">$7,500</span></li>
-      </ul>
-    </div>
-    
-    <div class="map-node">
-      <h2 class="node-title">Why Choose Renevizion?</h2>
-      <ul class="node-content" style="text-align:left;">
-        <li>10+ prototype apps built (see portfolio below)</li>
-        <li>Fast delivery using modern AI tools</li>
-        <li>Full documentation included</li>
-        <li>Launch support included</li>
-      </ul>
-    </div>
-    
-    <div class="map-node">
-      <h2 class="node-title">Digital Products</h2>
-      <ul class="node-content" style="text-align:left;">
-        <li><strong>"Build Apps Fast" Course</strong> – <span style="color:#FFD700;">$297</span></li>
-        <li><strong>App Templates & Code Packages</strong> – <span style="color:#FFD700;">$47–$197</span></li>
-      </ul>
-    </div>
-    
-    <div class="map-node">
-      <h2 class="node-title">Portfolio</h2>
-      <p class="node-content">
-        Explore my previous work and prototype apps. <br>
-        <a href="#portfolio" style="color:#FFD700;">View Portfolio</a>
-      </p>
-    </div>
-    
-    <div class="map-actions">
-      <a href="contact.html" class="map-button">Get a Quote</a>
-      <a href="#digital-products" class="map-button">Shop Digital Products</a>
-    </div>
-  </div>
 
-    <div class="side-component space-y-6">
-        <div class="rounded-lg border border-white/20 bg-black/90 p-4 backdrop-blur-lg shadow-lg">
-            <h3 class="mb-4 flex items-center gap-2 font-space-mono text-lg font-bold text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="3" y1="9" x2="21" y2="9"></line>
-                    <line x1="9" y1="21" x2="9" y2="9"></line>
-                </svg>
-                Available Apps
-            </h3>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-                    <div class="h-12 w-12 rounded-full bg-white/10"></div>
-                    <span class="mt-2 text-sm">App 1</span>
-                </div>
-                <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-                    <div class="h-12 w-12 rounded-full bg-white/10"></div>
-                    <span class="mt-2 text-sm">App 2</span>
-                </div>
+    <div class="section" id="services">
+        <div class="section-title">App Development Services</div>
+        <div class="pricing-table">
+            <div class="pricing-card">
+                <h3>$2,000<br>MVP Development</h3>
+                <ul>
+                    <li>Core functionality built</li>
+                    <li>User authentication system</li>
+                    <li>Basic database setup</li>
+                    <li>Mobile-responsive design</li>
+                    <li>30-day delivery guarantee</li>
+                    <li>Basic documentation included</li>
+                </ul>
             </div>
-        </div>
-
-        <div class="rounded-lg border border-white/20 bg-black/90 p-4 backdrop-blur-lg shadow-lg">
-            <h3 class="mb-4 flex items-center gap-2 font-space-mono text-lg font-bold text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                </svg>
-                Browser Extensions
-            </h3>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-                    <div class="h-12 w-12 rounded-full bg-white/10"></div>
-                    <span class="mt-2 text-sm">Extension 1</span>
-                </div>
-                <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-white/20 p-4 text-white transition-colors hover:border-white/40 bg-black/50">
-                    <div class="h-12 w-12 rounded-full bg-white/10"></div>
-                    <span class="mt-2 text-sm">Extension 2</span>
-                </div>
+            <div class="pricing-card">
+                <h3>$5,000<br>Full App + Launch</h3>
+                <ul>
+                    <li>Everything in MVP package</li>
+                    <li>Advanced features & integrations</li>
+                    <li>Payment processing setup</li>
+                    <li>App store submission</li>
+                    <li>Launch strategy & support</li>
+                    <li>3 months post-launch support</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <h3>$7,500<br>App + Marketing Strategy</h3>
+                <ul>
+                    <li>Everything in Full App package</li>
+                    <li>Complete marketing strategy</li>
+                    <li>Social media setup & content</li>
+                    <li>SEO optimization</li>
+                    <li>Analytics & tracking setup</li>
+                    <li>6 months growth support</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <script>
-        // Show the modal
-        function showModal() {
-            document.getElementById('smsModal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-        }
+    <div class="section" id="portfolio">
+        <div class="section-title">Live Apps & Prototypes</div>
+        <div class="portfolio-list">
+            <div class="portfolio-item">
+                <strong>LosePaper.com</strong><br>
+                Live productivity app helping users organize and manage their digital workflows. Currently serving active users with plans for premium features.
+            </div>
+            <div class="portfolio-item">
+                <strong>E-Commerce Platform</strong><br>
+                Custom shopping cart and inventory management system built for local retailer. Integrated payment processing and automated order fulfillment.
+            </div>
+            <div class="portfolio-item">
+                <strong>Appointment Booking System</strong><br>
+                Calendar integration and automated reminders for service-based business. Reduced no-shows by 40% and streamlined client management.
+            </div>
+            <div class="portfolio-item">
+                <strong>Content Management Tool</strong><br>
+                Custom CMS for content creators managing multiple social media accounts. Built with automated posting and analytics tracking.
+            </div>
+        </div>
+    </div>
 
-        // Hide the modal
-        function hideModal() {
-            document.getElementById('smsModal').style.display = 'none';
-            document.body.style.overflow = ''; // Restore scrolling
-        }
+    <div class="section" id="why">
+        <div class="section-title">Why Choose Renevizion?</div>
+        <div class="why-list">
+            <div class="why-card">⚡ Lightning Fast Delivery</div>
+            <div class="why-card">💰 Transparent Pricing</div>
+            <div class="why-card">🔧 Full Documentation</div>
+            <div class="why-card">📱 Modern Tech Stack</div>
+        </div>
+    </div>
 
-        // Format phone number as user types
-        function formatPhoneNumber(input) {
-            // Remove all non-numeric characters
-            let number = input.value.replace(/\D/g, '');
-            
-            // Format the number as (XXX) XXX-XXXX
-            if (number.length >= 3 && number.length <= 6) {
-                input.value = `(${number.slice(0,3)}) ${number.slice(3)}`;
-            } else if (number.length > 6) {
-                input.value = `(${number.slice(0,3)}) ${number.slice(3,6)}-${number.slice(6,10)}`;
-            }
-        }
+    <div class="section" id="products">
+        <div class="section-title">Digital Products & Courses</div>
+        <div class="products-table">
+            <div class="product-card">
+                <h4>$297<br>"Build Apps Fast" Course</h4>
+                <div>Complete step-by-step course showing exactly how I build custom apps in 30 days using AI tools and modern frameworks.<br><em>Coming Soon</em></div>
+            </div>
+            <div class="product-card">
+                <h4>$97<br>App Idea Validation Toolkit</h4>
+                <div>Templates, checklists, and frameworks to validate your app idea before spending money on development.<br><em>Coming Soon</em></div>
+            </div>
+            <div class="product-card">
+                <h4>$47-197<br>Code Templates & Packages</h4>
+                <div>Ready-to-use code templates for common app features. Authentication, payments, dashboards, and more.<br><em>Coming Soon</em></div>
+            </div>
+            <div class="product-card">
+                <h4>$200/hr<br>1-on-1 Consulting</h4>
+                <div>Direct access to my expertise. App strategy, technical guidance, or business planning sessions.<br>
+                <a href="contact.html" style="color:#FFD700;">Book Session</a></div>
+            </div>
+        </div>
+    </div>
 
-        // Handle form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Get form values
-            const phoneNumber = event.target.querySelector('input[type="tel"]').value;
-            const messageConsent = document.getElementById('messageConsent').checked;
-            const tosConsent = document.getElementById('tosConsent').checked;
-            const ageConsent = document.getElementById('ageConsent').checked;
+    <div class="founder-quote">
+        "I've built 10+ prototype apps and have one live application serving real users. My focus is speed, quality, and getting your business online fast."<br>
+        <br>- Renevizion Founder
+    </div>
 
-            // Validate form
-            if (!phoneNumber || !messageConsent || !tosConsent || !ageConsent) {
-                alert('Please complete all required fields.');
-                return;
-            }
-
-            // Here you would typically send data to your server/Twilio
-            console.log('Form submitted with:', {
-                phoneNumber,
-                messageConsent,
-                tosConsent,
-                ageConsent
-            });
-
-            // Show success message
-            alert('Thank you! You have successfully signed up for SMS updates.');
-            
-            // Reset form and close modal
-            event.target.reset();
-            hideModal();
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('smsModal');
-            if (event.target === modal) {
-                hideModal();
-            }
-        }
-
-        // Close modal when pressing escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                hideModal();
-            }
-        });
-    </script>
+    <div class="final-cta">
+        <div class="hero-title">Ready to Build Your App?</div>
+        <div>Let's turn your business idea into a working application in 30 days.</div>
+        <a href="contact.html"><button class="cta-btn">Get Your Free Quote</button></a>
+    </div>
 </body>
 </html>
