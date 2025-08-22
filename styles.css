@@ -14,44 +14,32 @@
     --accent-color: #E63946;
 }
 body {
-    font-family: 'Inter', monospace, sans-serif;
+    font-family: 'Inter', 'Roboto Mono', 'Space Mono', monospace, sans-serif;
     background-color: var(--background-color, #121212);
     color: var(--text-color, #fff);
     line-height: 1.6;
     margin: 0;
-    padding: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
 }
-/* Ensure all elements inherit the body font */
-*, *::before, *::after {
-    font-family: inherit !important;
-}
-
-/* Remove font overrides for headings, inputs, cubes, etc. */
-.cube h2,
-.cube h3,
-input,
-textarea,
-h1 {
-    font-family: inherit !important;
-}
-
 /* index.html container */
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
-    /* Remove text-align: center if present */
 }
-
+/* Header & Nav */
 .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
     border-bottom: 1px solid var(--border-color);
-    width: 100%;
-    /* Add this line to ensure full width */
-    box-sizing: border-box;
 }
 .main-nav .logo img { height: 50px; }
 .main-nav .nav-items {
@@ -318,6 +306,7 @@ h1 {
     transform: scale(1.05);
 }
 .cube h2 {
+    font-family: 'Space Mono', monospace;
     font-size: 1.3em;
     margin-bottom: 10px;
     color: #FFD700;
@@ -365,6 +354,7 @@ input, textarea {
     border-radius: 5px;
     background-color: #444;
     color: #fff;
+    font-family: 'Roboto Mono', monospace;
 }
 input[type="submit"] {
     background-color: #FFD700;
@@ -375,4 +365,9 @@ input[type="submit"] {
 }
 input[type="submit"]:hover {
     background-color: #ffbf00;
+}
+h1 {
+    font-family: 'Space Mono', monospace;
+    margin-bottom: 20px;
+    color: #FFD700;
 }
