@@ -529,24 +529,6 @@
 
         // Expandable cards functionality - FIXED
         function toggleExpand(element) {
-    // Close all other expanded cards first
-    const allToggles = document.querySelectorAll('.expand-toggle');
-    const allContents = document.querySelectorAll('.expandable-content');
-    
-    allToggles.forEach(toggle => {
-        if (toggle !== element) {
-            toggle.textContent = 'Show more';
-            toggle.classList.remove('expanded');
-        }
-    });
-    
-    allContents.forEach(content => {
-        if (content !== element.nextElementSibling) {
-            content.classList.remove('expanded');
-        }
-    });
-    
-    // Now toggle the clicked one
     const content = element.nextElementSibling;
     const isExpanded = content.classList.contains('expanded');
     
