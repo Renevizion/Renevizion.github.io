@@ -99,3 +99,8 @@ function toggleExpand(element) {
         element.textContent = "Show less";
     }
 }
+
+function toggleMenu() {
+    const navItems = document.getElementById('nav-items');
+    navItems.classList.toggle('open');
+}
