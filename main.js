@@ -86,6 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateTextFields();
     }
+
+    // Hamburger menu toggle for mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const navItems = document.getElementById('nav-items');
+    if (menuToggle && navItems) {
+        menuToggle.addEventListener('click', () => {
+            navItems.classList.toggle('open');
+        });
+    }
 });
 
 // Expandable cards functionality for index.html

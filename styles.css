@@ -46,7 +46,6 @@ h1 {
 
 .main-nav {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
@@ -60,7 +59,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
 }
 
 .menu-toggle {
@@ -75,7 +74,7 @@ h1 {
 }
 
 .nav-items {
-    display: none; /* Always hidden by default */
+    display: none;
     position: absolute;
     top: 60px;
     right: 40px;
