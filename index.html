@@ -285,9 +285,13 @@
             opacity: 0.8;
         }
         .expand-content {
+            display: none;
             margin-top: 8px;
             border-top: 1px solid var(--border-color);
             padding-top: 8px;
+        }
+        .expand-content.open {
+            display: block;
         }
     </style>
 </head>
@@ -354,7 +358,7 @@
                     <h3>Process Optimization</h3>
                     <p>Get more done with less effort by streamlining how your team works. Say goodbye to bottlenecks that slow you down.</p>
                     <button class="expand-btn" onclick="toggleExpand(this)">Show more</button>
-                    <div class="expand-content" style="display:none;">
+                    <div class="expand-content">
                         <p>We'll look at how your team currently works and find the roadblocks that are slowing everyone down. Then we'll help you create simpler ways to get things done. Think of it as clearing out the clutter so your team can focus on what really matters. You'll see fewer mistakes, less wasted time, and happier customers.</p>
                     </div>
                 </div>
@@ -362,7 +366,7 @@
                     <h3>Operational Strategy</h3>
                     <p>Get a practical game plan that helps your business run better today while preparing for tomorrow's opportunities.</p>
                     <button class="expand-btn" onclick="toggleExpand(this)">Show more</button>
-                    <div class="expand-content" style="display:none;">
+                    <div class="expand-content">
                         <p>We'll help you figure out what your business is great at and where it could use some improvement. Together, we'll create a step-by-step plan that makes sense for your specific goals. It's like having a roadmap that shows you exactly where to go next, so you're always moving in the right direction.</p>
                     </div>
                 </div>
@@ -370,7 +374,7 @@
                     <h3>Performance Analytics</h3>
                     <p>Know exactly how your business is performing with simple tracking that shows what's working and what needs attention.</p>
                     <button class="expand-btn" onclick="toggleExpand(this)">Show more</button>
-                    <div class="expand-content" style="display:none;">
+                    <div class="expand-content">
                         <p>We'll set up simple dashboards that show you the numbers that actually matter for your business. No confusing charts or overwhelming data - just clear insights that help you make better decisions and spot opportunities before your competitors do.</p>
                     </div>
                 </div>
@@ -378,7 +382,7 @@
                     <h3>Workforce Optimization</h3>
                     <p>Create a happier, more productive team where everyone knows their role and has the skills to excel at it.</p>
                     <button class="expand-btn" onclick="toggleExpand(this)">Show more</button>
-                    <div class="expand-content" style="display:none;">
+                    <div class="expand-content">
                         <p>We'll help you build systems that make your team more effective and engaged. From clearer job roles to better training processes, we'll create an environment where your people can do their best work and feel valued for their contributions.</p>
                     </div>
                 </div>
@@ -386,7 +390,7 @@
                     <h3>Automation & Technology</h3>
                     <p>Let technology handle the repetitive tasks so your team can focus on the work that actually requires human creativity.</p>
                     <button class="expand-btn" onclick="toggleExpand(this)">Show more</button>
-                    <div class="expand-content" style="display:none;">
+                    <div class="expand-content">
                         <p>We'll identify the time-consuming manual tasks that are eating up your team's energy and automate them with smart technology solutions. This frees up your people to focus on strategy, creativity, and building relationships - the things that actually grow your business.</p>
                     </div>
                 </div>
@@ -545,12 +549,12 @@
         // Expandable cards functionality
         function toggleExpand(element) {
             const content = element.nextElementSibling;
-            if (content.style.display === "none" || content.style.display === "") {
-                content.style.display = "block";
-                element.textContent = "Show less";
-            } else {
-                content.style.display = "none";
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
                 element.textContent = "Show more";
+            } else {
+                content.classList.add('open');
+                element.textContent = "Show less";
             }
         }
     </script>
