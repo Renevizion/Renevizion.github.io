@@ -525,14 +525,18 @@
 
         // Expandable cards functionality
         function toggleExpand(element) {
-            const content = element.nextElementSibling;
-            const isExpanded = content.classList.contains('expanded');
-            
-            if (isExpanded) {
+            // Close all expandable contents
+            document.querySelectorAll('.expandable-content').forEach(content => {
                 content.classList.remove('expanded');
-                element.textContent = 'Show more';
-                element.classList.remove('expanded');
-            } else {
+            });
+            document.querySelectorAll('.expand-toggle').forEach(toggle => {
+                toggle.textContent = 'Show more';
+                toggle.classList.remove('expanded');
+            });
+
+            // Open the selected one if it was not already expanded
+            const content = element.nextElementSibling;
+            if (!content.classList.contains('expanded')) {
                 content.classList.add('expanded');
                 element.textContent = 'Show less';
                 element.classList.add('expanded');
