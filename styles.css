@@ -14,18 +14,16 @@
     --accent-color: #E63946;
 }
 body {
-    font-family: 'Inter', 'Roboto Mono', 'Space Mono', monospace, sans-serif;
+    font-family: 'Inter', monospace, sans-serif;
     background-color: var(--background-color, #121212);
     color: var(--text-color, #fff);
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    text-align: center;
+    padding: 0;
+}
+/* Ensure all elements inherit the body font */
+*, *::before, *::after {
+    font-family: inherit !important;
 }
 /* index.html container */
 .container {
