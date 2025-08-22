@@ -21,10 +21,21 @@ body {
     margin: 0;
     padding: 0;
 }
+
 /* Ensure all elements inherit the body font */
 *, *::before, *::after {
     font-family: inherit !important;
 }
+
+/* Remove font overrides for headings, inputs, cubes, etc. */
+.cube h2,
+.cube h3,
+input,
+textarea,
+h1 {
+    font-family: inherit !important;
+}
+
 /* index.html container */
 .container {
     max-width: 1100px;
@@ -37,20 +48,50 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px 40px; /* Add horizontal padding for desktop */
     border-bottom: 1px solid var(--border-color);
     width: 100%;
-    /* Add this line to ensure full width */
     box-sizing: border-box;
 }
-.main-nav .logo img { height: 50px; }
+.main-nav .logo img {
+    height: 50px;
+    display: block;
+}
 .main-nav .nav-items {
     display: flex;
     align-items: center;
 }
-.main-nav a { color: var(--text-color); text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
-.main-nav a:hover { color: var(--primary-color); }
-.main-nav .cta-button-nav { background-color: var(--primary-color); color: var(--background-color); padding: 8px 16px; border-radius: 6px; }
+.main-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 0.9rem;
+}
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+.main-nav .cta-button-nav {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+@media (max-width: 600px) {
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .main-nav .nav-items {
+        margin-top: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .main-nav a {
+        margin-left: 0;
+        margin-bottom: 8px;
+    }
+}
 /* Hero Section */
 .hero {
     text-align: center;
