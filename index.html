@@ -135,7 +135,7 @@
             margin-top: 16px;
         }
         .expandable-content.expanded {
-            max-height: 1000px;
+            max-height: 300px;
         }
         .expandable-content p {
             padding-top: 8px;
@@ -525,18 +525,13 @@
 
         // Expandable cards functionality
         function toggleExpand(element) {
-            // Close all expandable contents
-            document.querySelectorAll('.expandable-content').forEach(content => {
-                content.classList.remove('expanded');
-            });
-            document.querySelectorAll('.expand-toggle').forEach(toggle => {
-                toggle.textContent = 'Show more';
-                toggle.classList.remove('expanded');
-            });
-
-            // Open the selected one if it was not already expanded
             const content = element.nextElementSibling;
-            if (!content.classList.contains('expanded')) {
+            const isExpanded = content.classList.contains('expanded');
+            if (isExpanded) {
+                content.classList.remove('expanded');
+                element.textContent = 'Show more';
+                element.classList.remove('expanded');
+            } else {
                 content.classList.add('expanded');
                 element.textContent = 'Show less';
                 element.classList.add('expanded');
