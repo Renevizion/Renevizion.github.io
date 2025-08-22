@@ -528,20 +528,25 @@
         });
 
         // Expandable cards functionality - FIXED
-        function toggleExpand(element) {
+function toggleExpand(element) {
     const content = element.nextElementSibling;
     const isExpanded = content.classList.contains('expanded');
     
-    if (isExpanded) {
-        content.classList.remove('expanded');
-        element.textContent = 'Show more';
-        element.classList.remove('expanded');
-    } else {
+    // Close all
+    document.querySelectorAll('.expandable-content').forEach(c => c.classList.remove('expanded'));
+    document.querySelectorAll('.expand-toggle').forEach(t => {
+        t.textContent = 'Show more';
+        t.classList.remove('expanded');
+    });
+
+    // Open the one you clicked if it wasn’t already open
+    if (!isExpanded) {
         content.classList.add('expanded');
         element.textContent = 'Show less';
         element.classList.add('expanded');
     }
 }
+
 
     </script>
 
