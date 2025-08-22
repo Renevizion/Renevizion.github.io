@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renevizion | Business Solutions</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' );
 
         :root {
             --background-color: #000000;
@@ -22,8 +22,6 @@
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
         }
 
         .container {
@@ -196,7 +194,6 @@
             padding: 12px;
             border-radius: 6px;
             font-size: 1rem;
-            box-sizing: border-box;
         }
         .form-group input[type="range"] {
             width: 100%;
@@ -224,7 +221,6 @@
             background: var(--accent-color);
             cursor: pointer;
             border-radius: 50%;
-            border: none;
         }
         .checkbox-group label {
             display: flex;
@@ -527,29 +523,21 @@
             updateTextFields();
         });
 
-        // Expandable cards functionality - FIXED
-function toggleExpand(element) {
-    const content = element.nextElementSibling;
-    const isCurrentlyExpanded = content.classList.contains('expanded');
-    
-    // First, close ALL cards
-    document.querySelectorAll('.expandable-content').forEach(c => {
-        c.classList.remove('expanded');
-    });
-    document.querySelectorAll('.expand-toggle').forEach(t => {
-        t.textContent = 'Show more';
-        t.classList.remove('expanded');
-    });
-    
-    // If this card wasn't expanded before, open ONLY this one
-    if (!isCurrentlyExpanded) {
-        content.classList.add('expanded');
-        element.textContent = 'Show less';
-        element.classList.add('expanded');
-    }
-}
-
-
+        // Expandable cards functionality
+        function toggleExpand(element) {
+            const content = element.nextElementSibling;
+            const isExpanded = content.classList.contains('expanded');
+            
+            if (isExpanded) {
+                content.classList.remove('expanded');
+                element.textContent = 'Show more';
+                element.classList.remove('expanded');
+            } else {
+                content.classList.add('expanded');
+                element.textContent = 'Show less';
+                element.classList.add('expanded');
+            }
+        }
     </script>
 
 </body>
