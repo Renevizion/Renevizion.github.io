@@ -1,0 +1,5 @@
+//Commit and push everything 
+
+git add .
+git commit -m "Commit all changes to files"
+git push
