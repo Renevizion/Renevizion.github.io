@@ -41,8 +41,6 @@ body {
     align-items: center;
     padding: 20px 0;
     border-bottom: 1px solid var(--border-color);
-    width: 100%;
-    /* Add this line to ensure full width */
     box-sizing: border-box;
 }
 .main-nav .logo img { height: 50px; }
