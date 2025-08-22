@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renevizion | Business Solutions</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' );
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
         :root {
             --background-color: #000000;
@@ -22,6 +22,8 @@
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
@@ -135,7 +137,13 @@
             margin-top: 16px;
         }
         .expandable-content.expanded {
-            max-height: 500px;
+            max-height: 300px;
+        }
+        .expandable-content p {
+            padding-top: 8px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 8px;
+            line-height: 1.6;
         }
         .expand-toggle {
             color: var(--accent-color);
@@ -144,6 +152,7 @@
             margin-top: 16px;
             display: inline-block;
             transition: opacity 0.3s;
+            font-weight: 500;
         }
         .expand-toggle:hover {
             opacity: 0.8;
@@ -187,6 +196,7 @@
             padding: 12px;
             border-radius: 6px;
             font-size: 1rem;
+            box-sizing: border-box;
         }
         .form-group input[type="range"] {
             width: 100%;
@@ -214,6 +224,7 @@
             background: var(--accent-color);
             cursor: pointer;
             border-radius: 50%;
+            border: none;
         }
         .checkbox-group label {
             display: flex;
@@ -516,7 +527,7 @@
             updateTextFields();
         });
 
-        // Expandable cards functionality
+        // Expandable cards functionality - FIXED
         function toggleExpand(element) {
             const content = element.nextElementSibling;
             const isExpanded = content.classList.contains('expanded');
