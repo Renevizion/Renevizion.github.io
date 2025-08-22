@@ -545,15 +545,12 @@
         // Expandable cards functionality
         function toggleExpand(element) {
             const content = element.nextElementSibling;
-            const isExpanded = content.classList.contains('expanded');
-            if (isExpanded) {
-                content.classList.remove('expanded');
-                element.textContent = 'Show more';
-                element.classList.remove('expanded');
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                element.textContent = "Show less";
             } else {
-                content.classList.add('expanded');
-                element.textContent = 'Show less';
-                element.classList.add('expanded');
+                content.style.display = "none";
+                element.textContent = "Show more";
             }
         }
     </script>
