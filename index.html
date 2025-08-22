@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Business Solutions | Systems That Work</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' );
 
         :root {
-            --background-color: #f8f9fa;
-            --background-light: #ffffff;
-            --text-color: #222;
-            --primary-color: #1a1a1a;
+            --background-color: #000000;
+            --background-light: #111111;
+            --text-color: #EAEAEA;
+            --primary-color: #FFFFFF;
             --secondary-color: #888888;
-            --border-color: #e0e0e0;
-            --accent-color: #E63946;
-            --card-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            --border-color: #222222;
+            --accent-color: #E63946; /* A strong red for sliders/results */
         }
 
         body {
@@ -23,7 +22,6 @@
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            margin: 0;
         }
 
         .container {
@@ -32,53 +30,34 @@
             padding: 0 20px;
         }
 
+        /* Header & Nav */
         .main-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 0;
+            padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
-            background: var(--background-light);
         }
-        .main-nav .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            letter-spacing: -1px;
-        }
-        .main-nav a {
-            color: var(--primary-color);
-            text-decoration: none;
-            margin-left: 28px;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .main-nav a:hover {
-            color: var(--accent-color);
-        }
-        .main-nav .cta-button-nav {
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 6px;
-            margin-left: 28px;
-            font-weight: 600;
-            box-shadow: var(--card-shadow);
-        }
+        .main-nav .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary-color); }
+        .main-nav a { color: var(--text-color); text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
+        .main-nav a:hover { color: var(--primary-color); }
+        .main-nav .cta-button-nav { background-color: var(--primary-color); color: var(--background-color); padding: 8px 16px; border-radius: 6px; }
 
+        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 0 60px 0;
-            background: var(--background-light);
+            padding: 100px 0;
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             line-height: 1.1;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .hero p {
             font-size: 1.25rem;
@@ -87,33 +66,29 @@
             margin: 0 auto 32px auto;
         }
         .hero .cta-button {
-            background-color: var(--accent-color);
-            color: #fff;
+            background-color: var(--primary-color);
+            color: var(--background-color);
             padding: 16px 32px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
-            box-shadow: var(--card-shadow);
-            font-size: 1.1rem;
-            margin-top: 18px;
         }
-        .hero .cta-button:hover { opacity: 0.93; }
+        .hero .cta-button:hover { opacity: 0.9; }
 
+        /* Generic Section Styling */
         .section {
-            padding: 70px 0;
+            padding: 80px 0;
             border-bottom: 1px solid var(--border-color);
-            background: var(--background-light);
         }
         .section-header {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 64px;
         }
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--primary-color);
-            margin-bottom: 14px;
-            font-weight: 700;
+            margin-bottom: 16px;
         }
         .section-header p {
             font-size: 1.1rem;
@@ -121,38 +96,40 @@
             max-width: 600px;
             margin: 0 auto;
         }
-
+        
+        /* Grid Layout for Features/Services */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 32px;
         }
-        .card, .grid-item, .path-item {
-            background: var(--background-light);
+        .grid-item {
+            background-color: var(--background-light);
+            padding: 32px;
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            padding: 32px 28px;
-            margin: 0;
         }
-        .card h3, .grid-item h3, .path-item h3 {
+        .grid-item h3 {
             font-size: 1.25rem;
             color: var(--primary-color);
             margin-bottom: 12px;
-            font-weight: 600;
         }
-        .card p, .grid-item p, .path-item p {
+        .grid-item p {
             font-size: 1rem;
             color: var(--secondary-color);
         }
-        .grid-item a, .card a {
-            color: var(--accent-color);
+        .grid-item a {
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
             margin-top: 16px;
             display: inline-block;
         }
-        .grid-item a:hover, .card a:hover { text-decoration: underline; }
+        .grid-item a:hover { text-decoration: underline; }
+        
+        .path-item h3 { font-size: 1.1rem; color: var(--primary-color); margin-bottom: 8px; }
+        .path-item p { font-size: 1rem; color: var(--secondary-color); }
+        .path-item { padding: 0; background: none; border: none; }
 
         /* ROI Calculator Section */
         .roi-calculator-wrapper {
@@ -163,21 +140,18 @@
             padding: 48px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
-            box-shadow: var(--card-shadow);
         }
         .roi-form h3, .roi-results h3 {
             font-size: 1.5rem;
             color: var(--primary-color);
             margin-bottom: 24px;
-            font-weight: 700;
         }
         .form-group { margin-bottom: 24px; }
         .form-group label {
             display: block;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--secondary-color);
             margin-bottom: 8px;
-            font-weight: 500;
         }
         .form-group input[type="text"], .form-group select {
             width: 100%;
@@ -221,7 +195,6 @@
             margin-bottom: 12px;
             font-size: 1rem;
             color: var(--text-color);
-            font-weight: 500;
         }
         .checkbox-group input {
             margin-right: 12px;
@@ -242,31 +215,18 @@
         .roi-results h4 { font-size: 1.25rem; color: var(--primary-color); margin-bottom: 8px; }
         .roi-results p { color: var(--secondary-color); }
         .roi-results .result-value {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 700;
             color: var(--accent-color);
             margin: 24px 0;
         }
-        .roi-results .cta-button {
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 24px;
-            font-size: 1.1rem;
-            box-shadow: var(--card-shadow);
-        }
-        .roi-results .cta-button:hover { opacity: 0.93; }
 
+        /* Footer */
         .main-footer {
             padding: 60px 0;
             text-align: center;
             font-size: 0.9rem;
             color: var(--secondary-color);
-            background: var(--background-light);
         }
         
         @media (max-width: 900px) {
@@ -274,9 +234,9 @@
         }
         @media (max-width: 600px) {
             .main-nav { flex-direction: column; gap: 16px; }
-            .hero h1 { font-size: 2.1rem; }
-            .roi-calculator-wrapper { padding: 20px; }
+            .hero h1 { font-size: 2.5rem; }
         }
+
     </style>
 </head>
 <body>
@@ -293,23 +253,23 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Stop Wasting Time on Inefficient Operations.</h1>
-            <p>When your business runs better, you make more money with less stress. We help you fix what's broken and build systems that actually work.</p>
-            <a href="#" class="cta-button">See How We Can Help</a>
+            <h1>Stop Losing Money to Broken Systems.</h1>
+            <p>Your business has problems that cost you money every single day. We build digital solutions that fix what's broken and put money back in your pocket.</p>
+            <a href="#" class="cta-button">Get Your Custom Solution</a>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Your Path To Better Results</h2>
-                <p>Tired of feeling like your business is running you instead of the other way around? Here's a simple approach that helps you take back control and get the results you want.</p>
+                <h2>Your Path To Real Results</h2>
+                <p>Tired of watching money slip through the cracks because your systems don't work? Here's how we fix the problems that are costing you the most.</p>
             </div>
             <div class="grid">
-                <div class="card"><h3>Discover Hidden Potential</h3><p>Your business has untapped potential waiting to be unleashed. We'll identify operational inefficiencies and high-impact improvement areas.</p></div>
-                <div class="card"><h3>Receive Tailored Solutions</h3><p>Your business deserves solutions as unique as your challenges. We'll create a plan that integrates technology, processes, and people.</p></div>
-                <div class="card"><h3>Experience Transformation</h3><p>You'll see real execution, not just recommendations. Your transition to optimized operations will be smooth and comprehensive.</p></div>
-                <div class="card"><h3>Celebrate Measurable Success</h3><p>Your success will be clear and quantifiable. You'll have metrics and tracking systems that demonstrate real impact.</p></div>
+                <div class="path-item"><h3>Find Your Biggest Money Leak</h3><p>Every business has that one thing that's bleeding money - lost leads, manual processes eating up hours, or customers falling through the cracks. We'll find yours.</p></div>
+                <div class="path-item"><h3>Build Your Custom Solution</h3><p>No generic software that almost fits. We start with proven foundations and rapidly customize them to solve your specific business problem perfectly.</p></div>
+                <div class="path-item"><h3>Watch Your Business Transform</h3><p>You'll see immediate results. More leads captured, time saved, processes that actually work. Your business will run smoother while you make more money.</p></div>
+                <div class="path-item"><h3>Track Your Success</h3><p>You'll know exactly how much money you're saving and making with clear metrics that show the real impact on your bottom line.</p></div>
             </div>
         </div>
     </section>
@@ -318,13 +278,13 @@
         <div class="container">
             <div class="section-header">
                 <h2>What You'll Experience</h2>
-                <p>Think about what it would feel like to have a business that runs smoothly, even when you're not there. Here's what that journey looks like:</p>
+                <p>Imagine having a business where the systems actually work for you instead of against you. Here's what that looks like:</p>
             </div>
             <div class="grid">
-                <div class="card"><h3>We Find What's Holding You Back</h3><p>Like a doctor checking your vital signs, we'll look at how your business actually runs day-to-day and find exactly where things are getting stuck.</p></div>
-                <div class="card"><h3>We Build A Complete Fix</h3><p>This isn't about quick patches. We build solutions that combine the right tools, better ways of working, and team changes to create lasting improvements.</p></div>
-                <div class="card"><h3>We Make Sure Everyone's On Board</h3><p>New ways of working only stick when people understand and embrace them. We'll create simple guides and training that actually makes sense to your team.</p></div>
-                <div class="card"><h3>We Track What Matters</h3><p>You'll always know if things are working because we'll set up simple ways to measure progress. No more guessing if your business is getting better.</p></div>
+                <div class="grid-item"><h3>We Identify What's Costing You Money</h3><p>Like a business detective, we'll examine your daily operations and pinpoint exactly where you're losing money - whether it's lost leads, wasted time, or missed opportunities.</p></div>
+                <div class="grid-item"><h3>We Build a Solution That Actually Works</h3><p>This isn't about fancy technology for technology's sake. We use proven systems and rapidly customize them into practical digital tools that solve your specific problem and start saving you money immediately.</p></div>
+                <div class="grid-item"><h3>We Make Sure It Fits Your Business</h3><p>Your solution will work the way you work. No forcing your team to adapt to complicated software - we adapt the solution to fit your existing processes.</p></div>
+                <div class="grid-item"><h3>We Prove It's Working</h3><p>You'll see the results in black and white. More customers, less wasted time, higher profits. No guessing if it's working - you'll know.</p></div>
             </div>
         </div>
     </section>
@@ -339,6 +299,7 @@
                 <div class="grid-item"><h3>Process Optimization</h3><p>Get more done with less effort by streamlining how your team works. Say goodbye to bottlenecks that slow you down.</p><a href="#">Learn more</a></div>
                 <div class="grid-item"><h3>Operational Strategy</h3><p>Get a practical game plan that helps your business run better today while preparing for tomorrow's opportunities.</p><a href="#">Learn more</a></div>
                 <div class="grid-item"><h3>Performance Analytics</h3><p>Know exactly how your business is performing with simple tracking that shows what's working and what needs attention.</p><a href="#">Learn more</a></div>
+                <div class="grid-item"><h3>Workforce Optimization</h3><p>Create a happier, more productive team where everyone knows their role and has the skills to excel at it.</p><a href="#">Learn more</a></div>
                 <div class="grid-item"><h3>Automation & Technology</h3><p>Let technology handle the repetitive tasks so your team can focus on the work that actually requires human creativity.</p><a href="#">Learn more</a></div>
             </div>
         </div>
@@ -347,16 +308,15 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>What's This Costing You?</h2>
-                <p>See how much money you're leaving on the table with inefficient operations. It takes just 30 seconds to find out.</p>
+                <h2>What's This Costing You Right Now?</h2>
+                <p>See how much money you're losing every month with broken systems. It takes 30 seconds to find out.</p>
             </div>
             <div class="roi-calculator-wrapper">
                 <div class="roi-form">
                     <h3>Enter Your Numbers Below</h3>
                     <div class="form-group">
-                        <label for="industry">Select Your Industry</label>
+                        <label for="industry">Select Your Business Type</label>
                         <select id="industry" name="industry">
-                            <option value="agency">Creative Agency</option>
                             <option value="retail">Retail/E-commerce</option>
                             <option value="service">Service Business</option>
                             <option value="restaurant">Restaurant/Food</option>
@@ -365,33 +325,36 @@
                     </div>
                     <div class="form-group">
                         <label for="revenue">Annual Revenue (USD)</label>
-                        <input type="text" id="revenue-text" value="$6,100,000">
-                        <input type="range" id="revenue" name="revenue" min="50000" max="10000000" value="6100000" step="50000">
+                        <input type="text" id="revenue-text" value="500,000">
+                        <input type="range" id="revenue" name="revenue" min="50000" max="2000000" value="500000" step="25000">
                     </div>
                     <div class="form-group">
                         <label for="margin">Current Profit Margin (%)</label>
-                        <input type="text" id="margin-text" value="15%">
+                        <input type="text" id="margin-text" value="15">
                         <input type="range" id="margin" name="margin" min="5" max="50" value="15">
                     </div>
                     <div class="form-group checkbox-group">
-                        <label for="pain-points">Select Your Top Pain Points (max 3)</label>
-                        <label><input type="checkbox" name="pain-point" value="process"> Unclear/Undefined Processes</label>
-                        <label><input type="checkbox" name="pain-point" value="manual"> Too Much Manual Work</label>
-                        <label><input type="checkbox" name="pain-point" value="team"> Team Alignment Issues</label>
-                        <label><input type="checkbox" name="pain-point" value="onboarding"> Client Onboarding Friction</label>
+                        <label for="pain-points">Select Your Biggest Problems (max 3)</label>
+                        <label><input type="checkbox" name="pain-point" value="leads"> Lost leads due to poor follow-up</label>
+                        <label><input type="checkbox" name="pain-point" value="manual"> Time wasted on manual processes</label>
+                        <label><input type="checkbox" name="pain-point" value="customers"> Customers leaving due to poor experience</label>
+                        <label><input type="checkbox" name="pain-point" value="inventory"> Inventory/operations chaos</label>
+                        <label><input type="checkbox" name="pain-point" value="tracking"> No clear view of business performance</label>
                     </div>
                 </div>
                 <div class="roi-results" id="roi-results-container">
+                    <!-- Initial State -->
                     <div id="roi-initial">
-                        <div class="icon">💡</div>
-                        <h4>Potential Annual Profit Increase</h4>
-                        <p>Fill out the form to see a conservative estimate of the value you could unlock by fixing your operational bottlenecks.</p>
+                        <div class="icon">💰</div>
+                        <h4>Calculate Your Loss</h4>
+                        <p>Fill out the form to see how much money broken systems are costing you every month.</p>
                     </div>
+                    <!-- Result State (hidden by default) -->
                     <div id="roi-final" style="display: none;">
-                        <h4>Potential Annual Profit Increase</h4>
-                        <div class="result-value" id="roi-value">$244,000</div>
-                        <p>This is a conservative estimate of the value you could unlock by fixing your operational bottlenecks.</p>
-                        <a href="#" class="cta-button">Book a Strategy Call</a>
+                        <h4>Monthly Loss From Broken Systems</h4>
+                        <div class="result-value" id="roi-value">$0</div>
+                        <p>This is what broken systems are costing you every single month. We can fix this fast.</p>
+                        <a href="#" class="hero cta-button" style="margin-top: 24px;">Get Your Solution Started</a>
                     </div>
                 </div>
             </div>
@@ -431,16 +394,22 @@
 
             const calculateROI = () => {
                 const revenue = parseFloat(revenueSlider.value);
+                const margin = parseFloat(marginSlider.value) / 100;
                 const checkedPainPoints = document.querySelectorAll('input[name="pain-point"]:checked');
-                // Conservative estimate: 0.4% of revenue per pain point, up to 3 pain points
-                const lossPerPainPoint = revenue * 0.004;
-                const totalAnnualIncrease = lossPerPainPoint * checkedPainPoints.length;
+
                 if (checkedPainPoints.length === 0) {
                     roiInitial.style.display = 'block';
                     roiFinal.style.display = 'none';
                     return;
                 }
-                roiValue.textContent = formatCurrency(totalAnnualIncrease);
+
+                // Calculate monthly loss based on broken systems
+                // Base loss: 2-5% of revenue per pain point
+                const lossPerPainPoint = revenue * 0.025; // 2.5% per pain point
+                const totalAnnualLoss = lossPerPainPoint * checkedPainPoints.length;
+                const monthlyLoss = totalAnnualLoss / 12;
+
+                roiValue.textContent = formatCurrency(monthlyLoss);
                 roiInitial.style.display = 'none';
                 roiFinal.style.display = 'block';
             };
@@ -451,9 +420,9 @@
             });
             revenueText.addEventListener('change', () => {
                 let value = parseFloat(revenueText.value.replace(/[^0-9.-]+/g,""));
-                if (isNaN(value)) value = 6100000;
+                if (isNaN(value)) value = 500000;
                 if (value < 50000) value = 50000;
-                if (value > 10000000) value = 10000000;
+                if (value > 2000000) value = 2000000;
                 revenueSlider.value = value;
                 revenueText.value = formatCurrency(value);
                 calculateROI();
@@ -463,7 +432,7 @@
                 marginText.value = `${marginSlider.value}%`;
                 calculateROI();
             });
-            marginText.addEventListener('change', () => {
+             marginText.addEventListener('change', () => {
                 let value = parseInt(marginText.value.replace('%', ''));
                 if (isNaN(value)) value = 15;
                 if (value < 5) value = 5;
@@ -483,9 +452,11 @@
                 });
             });
 
+            // Initial setup
             updateTextFields();
         });
     </script>
 
 </body>
 </html>
+
