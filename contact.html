@@ -1,92 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Me</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: 'Roboto Mono', monospace;
-      background-color: #121212;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    h1 {
-      font-family: 'Space Mono', monospace;
-      margin-bottom: 20px;
-      color: #FFD700;
-    }
-
-    .form-container {
-      width: 100%;
-      max-width: 600px;
-      background-color: #333;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-
-    label {
-      font-size: 1em;
-      color: #FFD700;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: none;
-      border-radius: 5px;
-      background-color: #444;
-      color: #fff;
-      font-family: 'Roboto Mono', monospace;
-    }
-
-    input[type="submit"] {
-      background-color: #FFD700;
-      color: #121212;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #ffbf00;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact Jason Solutions for a website, product system, or launch project.">
+  <meta http-equiv="refresh" content="0; url=https://renevizion.github.io/#contact">
+  <link rel="canonical" href="https://renevizion.github.io/#contact">
+  <title>Contact Jason Solutions</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Contact Me</h1>
-  <div class="form-container">
-    <form action="submit_contact.php" method="post">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <input type="submit" value="Submit">
-    </form>
-  </div>
+  <main class="contact-section" style="min-height: 100vh; display: grid; place-items: center;">
+    <section class="shell" aria-labelledby="contact-heading">
+      <p class="eyebrow">Jason Solutions</p>
+      <h1 id="contact-heading" style="font-size: clamp(3rem, 9vw, 6rem);">Let’s make the next thing work.</h1>
+      <p class="hero-copy">If you are not redirected automatically, email <a href="mailto:renevizionllc@gmail.com?subject=Jason%20Solutions%20project%20inquiry">renevizionllc@gmail.com</a>.</p>
+      <a class="button button-primary" href="https://renevizion.github.io/#contact">Return to Jason Solutions</a>
+    </section>
+  </main>
 </body>
 </html>
