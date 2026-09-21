@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const company = String(fields.get('company') || '').trim();
     const email = String(fields.get('email') || '').trim();
     const situation = String(fields.get('problem') || '').trim();
-    const subject = 'Private conversation' + (company ? ` — ${company}` : '');
+    const subject = 'Conversation with Renevizion' + (company ? ` — ${company}` : '');
     const body = [
-      'Private conversation',
+      'Renevizion conversation',
       '',
       `Name: ${name}`,
       `Company / organization: ${company || 'Not provided'}`,
