@@ -20,15 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const company = String(fields.get('company') || '').trim();
     const email = String(fields.get('email') || '').trim();
     const situation = String(fields.get('problem') || '').trim();
-    const subject = 'Conversation with Renevizion' + (company ? ` — ${company}` : '');
+    const subject = 'Project inquiry for Milocro' + (company ? ` — ${company}` : '');
     const body = [
-      'Renevizion conversation',
+      'Milocro project inquiry',
       '',
       `Name: ${name}`,
       `Company / organization: ${company || 'Not provided'}`,
       `Email: ${email}`,
       '',
-      'What is on the table:',
+      'What they are looking to build:',
       situation,
     ].join('\n');
     const recipient = ['jasonmilord1216', 'gmail.com'].join('@');
