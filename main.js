@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `Company / organization: ${company || 'Not provided'}`,
       `Email: ${email}`,
       '',
-      'What they are looking to build:',
+      'What is on the table:',
       situation,
     ].join('\n');
     const recipient = ['jasonmilord1216', 'gmail.com'].join('@');
