@@ -182,12 +182,23 @@ h2 { margin-bottom: 1.25rem; font-family: var(--serif); font-size: clamp(2.75rem
   border-color: var(--accent);
 }
 .form-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-fields { display: contents; }
+.review-form.is-complete .form-fields { display: none; }
 .review-form .button { width: fit-content; margin-top: .25rem; border: 0; cursor: pointer; font: inherit; }
 .review-form .button:disabled { cursor: wait; opacity: .62; transform: none; }
+.button-secondary { border: 1px solid var(--ink); background: transparent; color: var(--ink); }
+.button-secondary:hover { background: var(--ink); color: var(--paper); }
 .form-note { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .82rem; }
 .form-note.is-pending { color: var(--muted); }
 .form-note.is-success { color: var(--green); font-weight: 750; }
 .form-note.is-error { color: var(--accent-dark); font-weight: 750; }
+.form-success { grid-column: 1 / -1; padding: clamp(1.5rem, 4vw, 2.5rem); background: var(--green); color: #f8f4ed; }
+.form-success-mark { display: grid; place-items: center; width: 3rem; height: 3rem; margin-bottom: 1.5rem; border-radius: 50%; background: var(--accent); color: var(--ink); font-size: 1.7rem; font-weight: 800; }
+.form-success .eyebrow { margin-bottom: .75rem; color: #c4d0c5; }
+.form-success h3 { margin-bottom: .8rem; font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 400; }
+.form-success p:not(.eyebrow) { max-width: 34rem; color: #d8e0d7; font-size: 1.05rem; }
+.form-success .button-secondary { margin-top: .6rem; border-color: #f8f4ed; color: #f8f4ed; }
+.form-success .button-secondary:hover { background: #f8f4ed; color: var(--green); }
 
 @media (max-width: 600px) {
   .review-form { grid-template-columns: 1fr; }

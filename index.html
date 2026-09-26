@@ -124,24 +124,33 @@
             <input type="hidden" name="_subject" value="New project inquiry for Milocro">
             <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honeypot">
-            <div class="form-row">
+            <div class="form-fields" id="form-fields">
+              <div class="form-row">
               <label for="inquiry-name">Your name</label>
               <input id="inquiry-name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="form-row">
+              </div>
+              <div class="form-row">
               <label for="inquiry-company">Company or organization</label>
               <input id="inquiry-company" name="company" type="text" autocomplete="organization">
-            </div>
-            <div class="form-row">
+              </div>
+              <div class="form-row">
               <label for="inquiry-email">Your email</label>
               <input id="inquiry-email" name="email" type="email" autocomplete="email" required>
-            </div>
-            <div class="form-row form-row-wide">
+              </div>
+              <div class="form-row form-row-wide">
               <label for="inquiry-problem">What are you trying to improve or build?</label>
               <textarea id="inquiry-problem" name="problem" rows="5" required placeholder="For example: a website that is not turning interest into inquiries, a manual process that is getting harder to run, or a new offer that needs a usable first version."></textarea>
+              </div>
+              <button class="button button-primary" type="submit">Start the conversation <span aria-hidden="true">↗</span></button>
+              <p class="form-note" id="form-note" aria-live="polite">Your message will be sent securely to Milocro. We’ll get back to you by email.</p>
             </div>
-            <button class="button button-primary" type="submit">Start the conversation <span aria-hidden="true">↗</span></button>
-            <p class="form-note" id="form-note" aria-live="polite">Your message will be sent securely to Milocro. We’ll get back to you by email.</p>
+            <div class="form-success" id="form-success" hidden role="status" aria-labelledby="form-success-title">
+              <span class="form-success-mark" aria-hidden="true">✓</span>
+              <p class="eyebrow">Message received</p>
+              <h3 id="form-success-title">Your message is on its way.</h3>
+              <p>Thanks for reaching out. We’ve received your inquiry and will get back to you by email.</p>
+              <button class="button button-secondary" type="button" id="reset-form">Send another message</button>
+            </div>
           </form>
         </div>
       </div>
@@ -154,6 +163,6 @@
     </div>
   </footer>
 
-  <script src="main.js?v=20260925-2"></script>
+  <script src="main.js?v=20260925-3"></script>
 </body>
 </html>
