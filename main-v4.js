@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formNote.className = 'form-note';
     formNote.textContent = 'Your message will be sent securely to Milocro. We’ll get back to you by email.';
     submitButton.disabled = false;
-    submitButton.textContent = 'Start the conversation ↗';
+    submitButton.textContent = 'Send for review ↗';
     document.getElementById('inquiry-name')?.focus();
   });
 
