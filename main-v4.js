@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inquiryForm.classList.remove('is-complete');
     formSuccess.hidden = true;
     formNote.className = 'form-note';
-    formNote.textContent = 'Your message will be sent securely to Milocro. We’ll get back to you by email.';
+    formNote.textContent = 'Your message sends directly to Milocro. We’ll get back to you by email.';
     submitButton.disabled = false;
     submitButton.textContent = 'Start the conversation ↗';
     document.getElementById('inquiry-name')?.focus();
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
         body: new FormData(inquiryForm),
         headers: { Accept: 'application/json' },
       });
-      const result = await response.json();
-      if (!response.ok || result.success !== 'true') throw new Error(result.message || 'Submission failed');
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.message || 'Submission failed');
 
       inquiryForm.reset();
       inquiryForm.classList.add('is-complete');
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formSuccess.querySelector('h3')?.focus();
     } catch (error) {
       formNote.className = 'form-note is-error';
-      formNote.textContent = 'We couldn’t send your message right now. Please try again or email us directly.';
+      formNote.textContent = 'We couldn’t send your message right now. Please try again in a moment.';
       submitButton.disabled = false;
       submitButton.textContent = 'Try again ↗';
     }
