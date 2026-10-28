@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitButton = inquiryForm?.querySelector('button[type="submit"]');
   if (!inquiryForm || !formNote || !formSuccess || !formFields || !resetFormButton || !submitButton) return;
 
+  const params = new URLSearchParams(window.location.search);
+  ['source', 'medium', 'campaign'].forEach((key) => {
+    const field = document.getElementById(`utm-${key}`);
+    if (field) field.value = params.get(`utm_${key}`) || '';
+  });
+
   resetFormButton.addEventListener('click', () => {
     inquiryForm.reset();
     inquiryForm.classList.remove('is-complete');

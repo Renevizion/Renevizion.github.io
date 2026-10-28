@@ -152,6 +152,9 @@
           <p>Tell Milocro about one part of the customer experience or team handoff that keeps coming back. The reply will identify the right starting point: a defined build or a direction session.</p>
           <form class="review-form" id="review-form" action="https://formbold.com/s/9EaX8" method="POST" accept-charset="UTF-8">
             <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honeypot">
+            <input type="hidden" name="utm_source" id="utm-source">
+            <input type="hidden" name="utm_medium" id="utm-medium">
+            <input type="hidden" name="utm_campaign" id="utm-campaign">
             <div class="form-fields" id="form-fields">
               <div class="form-row">
                 <label for="inquiry-name">Your name</label>
@@ -165,6 +168,15 @@
                 <label for="inquiry-email">Your email</label>
                 <input id="inquiry-email" name="email" type="email" autocomplete="email" required>
               </div>
+              <fieldset class="form-choice form-row-wide">
+                <legend>Which is closest?</legend>
+                <div class="choice-grid">
+                  <label><input type="radio" name="path_type" value="Client path" required> <span>A client path needs work</span></label>
+                  <label><input type="radio" name="path_type" value="Team handoff"> <span>A team handoff needs work</span></label>
+                  <label><input type="radio" name="path_type" value="New offer or first build"> <span>A new offer needs a first build</span></label>
+                  <label><input type="radio" name="path_type" value="Not sure yet"> <span>I’m not sure yet</span></label>
+                </div>
+              </fieldset>
               <div class="form-row form-row-wide">
                 <label for="inquiry-problem">What path needs to work better?</label>
                 <textarea id="inquiry-problem" name="problem" rows="5" required placeholder="For example: how someone inquires, books, gives information, gets approved, or receives follow-up."></textarea>

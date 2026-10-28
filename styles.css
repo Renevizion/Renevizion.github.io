@@ -115,6 +115,12 @@ h3 { font-family: var(--serif); font-weight: 400; }
 .review-form input, .review-form textarea { width: 100%; border: 1px solid #a9a49b; border-radius: 0; padding: .8rem .85rem; background: #fffdf9; color: var(--ink); font: inherit; line-height: 1.4; }
 .review-form textarea { min-height: 132px; resize: vertical; }
 .review-form input:focus, .review-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 2px; border-color: var(--accent); }
+.form-choice { margin: 0; padding: 0; border: 0; }
+.form-choice legend { margin-bottom: .6rem; color: var(--ink); font-size: .8rem; font-weight: 800; letter-spacing: .04em; }
+.choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
+.choice-grid label { display: flex; align-items: center; gap: .6rem; min-height: 48px; padding: .7rem .8rem; border: 1px solid #a9a49b; background: #fffdf9; font-size: .88rem; font-weight: 650; letter-spacing: 0; cursor: pointer; }
+.choice-grid label:has(input:checked) { border-color: var(--green); background: #e5ece4; }
+.choice-grid input { width: 1rem; height: 1rem; margin: 0; padding: 0; accent-color: var(--green); }
 .form-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .form-fields { display: contents; }
 .review-form.is-complete .form-fields { display: none; }
@@ -158,5 +164,6 @@ h3 { font-family: var(--serif); font-weight: 400; }
   .footer-wrap { display: block; }
   .review-form { grid-template-columns: 1fr; }
   .form-row-wide, .form-note { grid-column: auto; }
+  .choice-grid { grid-template-columns: 1fr; }
   .review-form .button { width: 100%; }
 }
