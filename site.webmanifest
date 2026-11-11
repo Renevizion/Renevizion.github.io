@@ -1,7 +1,7 @@
 {
   "name": "Milocro",
   "short_name": "Milocro",
-  "description": "Milocro builds business systems, digital products, and customer experiences for businesses improving operations, expanding, and bridging gaps between tools.",
+  "description": "Milocro designs business systems, digital products, and customer experiences that fit your workflow, connect existing tools, and address what is missing.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f7f3ec",
